@@ -1,4 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Geo:ital@0;1&display=swap");
 @import "tailwindcss";
+
+@theme {
+   --font-display: "Geo", sans-serif;
+}
+
+body {
+   @apply font-mono
+   /* background-color: #f9f9f9; */
+   /* color: #213547; */;
+}
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
