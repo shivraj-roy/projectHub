@@ -1,7 +1,7 @@
 import HOME from "../assets/Working Late.jpg";
 import Button from "./Button";
 
-export default function Home() {
+export default function Home({ onAddProject }) {
    return (
       <div className="text-center w-2/3 my-9">
          <img
@@ -11,7 +11,7 @@ export default function Home() {
          />
          <h2 className="my-4 text-3xl">No active Project</h2>
          <p className="my-4">
-            <Button>Create new project</Button>
+            <Button onClick={onAddProject}>Create new project</Button>
          </p>
       </div>
    );
