@@ -1,11 +1,26 @@
+import { useRef } from "react";
 import Input from "./Input";
 
 export default function NewProject() {
+   const titleRef = useRef();
+   const descriptionRef = useRef();
+   const dueDateRef = useRef();
+
+   const handleSave = () => {
+      const title = titleRef.current.value;
+      const description = descriptionRef.current.value;
+      const dueDate = dueDateRef.current.value;
+      console.log(title, description, dueDate);
+   };
+
    return (
       <div className="w-[35rem] mt-12">
          <menu className="flex gap-8 item-center justify-end ">
             <li>
-               <button className="bg-gray-900 text-white py-2 px-6 rounded-4xl cursor-pointer hover:bg-white hover:text-black hover:border">
+               <button
+                  onClick={handleSave}
+                  className="bg-gray-900 text-white py-2 px-6 rounded-4xl cursor-pointer hover:bg-white hover:text-black hover:border"
+               >
                   Save
                </button>
             </li>
@@ -16,9 +31,9 @@ export default function NewProject() {
             </li>
          </menu>
          <div className="bg-stone-100 h-[40rem] m-4 py-4 px-6 rounded-4xl">
-            <Input label="Project Name: " />
-            <Input label="Description: " textarea />
-            <Input label="Due Date: " />
+            <Input ref={titleRef} label="Project Name: " />
+            <Input ref={descriptionRef} label="Description: " textarea />
+            <Input ref={dueDateRef} label="Due Date: " />
          </div>
       </div>
    );

@@ -9,7 +9,7 @@ function App() {
       projects: [],
    });
 
-   const handleAddProject = () => {
+   const handleNewAddProject = () => {
       setProjectState((projectState) => {
          return {
             ...projectState,
@@ -22,12 +22,12 @@ function App() {
    if (projectState.selectedProjectId === null) {
       content = <NewProject />;
    } else if (projectState.selectedProjectId === undefined) {
-      content = <Home onAddProject={handleAddProject} />;
+      content = <Home onNewAddProject={handleNewAddProject} />;
    }
 
    return (
       <main className="flex gap-5">
-         <ProjectSidebar onAddProject={handleAddProject} />
+         <ProjectSidebar onNewAddProject={handleNewAddProject} />
          {content}
       </main>
    );
