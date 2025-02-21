@@ -1,7 +1,7 @@
 import { CiCirclePlus } from "react-icons/ci";
 import LOGO from "../assets/PH Logo.png";
 
-export default function ProjectSidebar({ onNewAddProject }) {
+export default function ProjectSidebar({ onNewAddProject, projects }) {
    return (
       <aside className="w-80 h-screen bg-white border-r border-gray-200">
          <div className="flex items-center justify-center space-x-2 p-4 border-b border-gray-200">
@@ -20,6 +20,17 @@ export default function ProjectSidebar({ onNewAddProject }) {
                <CiCirclePlus className="text-4xl" /> Add Project
             </button>
          </div>
+         <ul className="my-4">
+            {projects.map((project) => {
+               return (
+                  <li key={project.id}>
+                     <button className="w-full text-left px-4 py-2 h-[55px] cursor-pointer transition-all easy-out hover:border-[0.25px] hover:bg-stone-50">
+                        {project.title}
+                     </button>
+                  </li>
+               );
+            })}
+         </ul>
       </aside>
    );
 }

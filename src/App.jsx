@@ -26,12 +26,11 @@ function App() {
          };
          return {
             ...prev,
+            selectedProjectId: undefined,
             projects: [...prev.projects, newProject],
          };
       });
    };
-
-   console.log(projectState);
 
    let content;
    if (projectState.selectedProjectId === null) {
@@ -42,7 +41,10 @@ function App() {
 
    return (
       <main className="flex gap-5">
-         <ProjectSidebar onNewAddProject={handleNewAddProject} />
+         <ProjectSidebar
+            onNewAddProject={handleNewAddProject}
+            projects={projectState.projects}
+         />
          {content}
       </main>
    );
