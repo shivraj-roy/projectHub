@@ -12,10 +12,15 @@ export default function Modal({ children, buttonCaption, ref }) {
    });
 
    return createPortal(
-      <dialog ref={dialogRef}>
+      <dialog
+         ref={dialogRef}
+         className="m-4 left-[32%] top-[32%] text-center backdrop:bg-stone-900/90 p-4 rounded shadow-md"
+      >
          {children}
          <form method="dialog">
-            <button>{buttonCaption}</button>
+            <button className="m-2 py-2 px-4 border cursor-pointer hover:underline">
+               {buttonCaption}
+            </button>
          </form>
       </dialog>,
       document.getElementById("modal-root")

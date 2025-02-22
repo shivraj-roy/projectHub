@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Input from "./Input";
 import Modal from "./Modal";
 
-export default function NewProject({ onAdd }) {
+export default function NewProject({ onAdd, onCancel }) {
    const titleRef = useRef();
    const descriptionRef = useRef();
    const dueDateRef = useRef();
@@ -28,8 +28,8 @@ export default function NewProject({ onAdd }) {
    return (
       <>
          <Modal ref={modal} buttonCaption="OKAY">
-            <h2>Invalid Input !!!</h2>
-            <p>Ops! looks like you forget to enter the value !</p>
+            <h2 className="font-bold">Invalid Input !!!</h2>
+            <p>Oopss! looks like you forget to enter the value !</p>
          </Modal>
          <div className="w-[35rem] mt-12">
             <menu className="flex gap-8 item-center justify-end ">
@@ -42,7 +42,10 @@ export default function NewProject({ onAdd }) {
                   </button>
                </li>
                <li>
-                  <button className="py-2 px-6 rounded-4xl cursor-pointer border border-gray-900">
+                  <button
+                     onClick={onCancel}
+                     className="py-2 px-6 rounded-4xl cursor-pointer border border-gray-900"
+                  >
                      Cancel
                   </button>
                </li>
