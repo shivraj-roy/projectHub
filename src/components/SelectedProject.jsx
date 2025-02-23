@@ -1,6 +1,6 @@
 import { CiTrash } from "react-icons/ci";
 
-export default function SelectedProject({ project }) {
+export default function SelectedProject({ project, onDelete }) {
    const formatedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
@@ -15,7 +15,7 @@ export default function SelectedProject({ project }) {
                <h1 className="text-3xl font-bold capitalize">
                   {project.title}
                </h1>
-               <button>
+               <button onClick={onDelete} className="cursor-pointer">
                   <CiTrash className="text-red-500 text-3xl" />
                </button>
             </div>
