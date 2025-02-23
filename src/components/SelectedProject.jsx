@@ -1,7 +1,13 @@
 import { CiTrash } from "react-icons/ci";
 import Task from "./Task";
 
-export default function SelectedProject({ project, onDelete }) {
+export default function SelectedProject({
+   project,
+   onDelete,
+   onAddTask,
+   onDeleteTask,
+   tasks,
+}) {
    const formatedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
@@ -25,7 +31,7 @@ export default function SelectedProject({ project, onDelete }) {
                {project.description}
             </p>
          </header>
-         <Task />
+         <Task onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} />
       </div>
    );
 }
