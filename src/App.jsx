@@ -25,7 +25,14 @@ function App() {
       });
    };
 
-   const handleDeleteTask = () => {};
+   const handleDeleteTask = (id) => {
+      setProjectState((prev) => {
+         return {
+            ...prev,
+            tasks: prev.tasks.filter((task) => task.id !== id),
+         };
+      });
+   };
 
    const handleSelectedProject = (projectId) => {
       setProjectState((prev) => {
