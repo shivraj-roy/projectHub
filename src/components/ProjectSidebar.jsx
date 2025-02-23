@@ -1,7 +1,12 @@
 import { CiCirclePlus } from "react-icons/ci";
 import LOGO from "../assets/PH Logo.png";
 
-export default function ProjectSidebar({ onNewAddProject, projects }) {
+export default function ProjectSidebar({
+   onNewAddProject,
+   projects,
+   onSelectedProject,
+   selectedProjectID,
+}) {
    return (
       <aside className="w-80 h-screen bg-white border-r border-gray-200">
          <div className="flex items-center justify-center space-x-2 p-4 border-b border-gray-200">
@@ -22,9 +27,20 @@ export default function ProjectSidebar({ onNewAddProject, projects }) {
          </div>
          <ul className="my-4">
             {projects.map((project) => {
+               let cssClass =
+                  "w-full text-left px-4 py-2 h-[55px] cursor-pointer transition-all easy-out hover:bg-stone-50";
+               if (project.id === selectedProjectID) {
+                  cssClass += " border-[0.25px] bg-stone-50";
+               } else {
+                  cssClass += " hover:border-[0.25px]";
+               }
+
                return (
                   <li key={project.id}>
-                     <button className="w-full text-left px-4 py-2 h-[55px] cursor-pointer transition-all easy-out hover:border-[0.25px] hover:bg-stone-50">
+                     <button
+                        onClick={() => onSelectedProject(project.id)}
+                        className={cssClass}
+                     >
                         {project.title}
                      </button>
                   </li>
